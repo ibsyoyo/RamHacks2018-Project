@@ -5,7 +5,7 @@
 # Zun Lin
 # Ibrahim Rahman
 #
-# This project is to help further out education in terms of MongoDB, learn about MongoDB Stich, Studio 3t, using sentiment analysis, trying new applications (like outsystems), working with each others assets/picking up after each others slack, using different languages like python/javascript/html, and more.
+#### This project is to help further out education in terms of MongoDB, learn about MongoDB Stich, Studio 3t, using sentiment analysis, trying new applications (like outsystems), working with each others assets/picking up after each others slack, using different languages like python/javascript/html, and more.
 # 
 # We first started off with coming up with a plan that we wanted to execute (as a group): Using Outsystems, MongoDB Stitch, and even GCP... But of course during the trial and error process of working out and learning new material (as we go) we had to change our course of action.
 #
