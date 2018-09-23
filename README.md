@@ -1,7 +1,7 @@
 # RamHacks2018-Project-Zias
 
-### Sudhansu 
-### Shrestha Andy Hyunh
+### Sudhansu Shrestha
+### Andy Hyunh
 ### Zun Lin
 ### Ibrahim Rahman
 #
