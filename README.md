@@ -12,7 +12,7 @@
 ##### A lot of obstacles and hurdles had to be overcomed during this process, but we would love to present to you ZIAS!
 #
 ##### ZIAS is web application, that was created to help users scan reddit and look up specific brands to be able run analytics on these specific 'keywords'.
-#
+#Screenshots
 ![](login.png)
 
 #
