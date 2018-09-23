@@ -1,7 +1,6 @@
 # RamHacks2018-Project-Zias
-#Group Memeber
-## Sudhansu Shrestha
-## Andy Hyunh
+# Group Memeber
+## Sudhansu Shrestha Andy Hyunh
 ## Zun Lin
 ## Ibrahim Rahman
 #
