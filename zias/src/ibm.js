@@ -1,3 +1,4 @@
+function toneAnalysis(){
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 var config = require('./config');
 
@@ -34,3 +35,7 @@ tone_analyzer.tone(toneParams, function(error, toneAnalysis)
                 console.log(tone);
                 }
         });
+
+}
+
+toneAnalysis();
