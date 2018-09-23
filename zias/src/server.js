@@ -36,6 +36,9 @@ app.post('/process_post', urlencodedParser, function (req, res) {
    };
    console.log(response);
    res.end(JSON.stringify(response));
+    // res.sendFile(__dirname, 'index.html');
+//    return res.redirect('/chart.html');
+// window.location.replace("chart.html");
 })
 
 var server = app.listen(8081, function () {
