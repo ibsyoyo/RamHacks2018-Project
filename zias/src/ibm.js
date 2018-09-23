@@ -1,6 +1,23 @@
+import {Stitch, AnonymousCredential} from "mongodb-stitch-browser-sdk";
+
 function toneAnalysis(){
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 var config = require('./config');
+
+const client = stitch.Stitch.initializeDefaultAppClient('zias-mynmy');
+
+const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-atlas').db('ZIAS');
+
+client.auth.loginWithCredential(new stitch.AnonymousCredential()).then(user => 
+  db.collection('ZIAS2').updateOne({owner_id: client.auth.user.id}, {$set:{number:42}}, {upsert:true})
+).then(() => 
+  db.collection('ZIAS2').find({owner_id: client.auth.user.id}, { limit: 100}).asArray()
+).then(docs => {
+    console.log("Found docs", docs)
+    console.log("[MongoDB Stitch] Connected to Stitch")
+}).catch(err => {
+  console.error(err)
+});
 
 var tone_analyzer = new ToneAnalyzerV3(
         {
@@ -9,7 +26,7 @@ var tone_analyzer = new ToneAnalyzerV3(
         version_date: '2018-09-22'
         });
 
-var text = 'Dear Google, from a frustrated fanboy'
+var text = db.collection('ZIAS2').find({owner_id: client.auth.user.id});
 
 var toneParams = {
   'tone_input': { 'text': text },
