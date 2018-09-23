@@ -1,26 +1,36 @@
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+var config = require('./config');
 
-var toneAnalyzer = new ToneAnalyzerV3({
-    version: '{2018-09-22}',
-    iam_apikey: '{mNh8LF5-q24BvMXKJkbsApyrKkXfw2vjVtCe5tgTIYaQ}',
-    url: '{https://gateway-wdc.watsonplatform.net/tone-analyzer/api}'
-  });
+var tone_analyzer = new ToneAnalyzerV3(
+        {
+        username: config.username,
+        password: config.password,
+        version_date: '2018-09-22'
+        });
 
-
-var text = 'Team, I know that times are tough! Product '
-  + 'sales have been disappointing for the past three '
-  + 'quarters. We have a competitive product, but we '
-  + 'need to do a better job of selling it!'
+var text = 'Dear Google, from a frustrated fanboy'
 
 var toneParams = {
-      'tone_input': { 'text': text },
-      'content_type': 'application/json'
+  'tone_input': { 'text': text },
+  'content_type': 'application/json'
 };
 
-toneAnalyzer.tone(toneParams, function (error, toneAnalysis) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(JSON.stringify(toneAnalysis, null, 2));
-    }
-}); 0;
+// Use our Tone Analyzer variable to analyze the tone.
+tone_analyzer.tone(toneParams, function(error, toneAnalysis)
+        {
+        // There's an error.
+        if (error)
+                {
+                console.log('Error:', error);
+                }
+        // No error, we got our tone result.
+        else
+                {
+                // The tone of the text, as determined by watson.
+                var tone = JSON.stringify(toneAnalysis, null, 2)
+
+                // Output Watson's tone analysis to the console.
+                console.log("The tone analysis for \'" + text + "\' is:\n");
+                console.log(tone);
+                }
+        });
