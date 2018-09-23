@@ -3,12 +3,17 @@ import csv
 from bs4 import BeautifulSoup
 
 if __name__ == "__main__":
-    url = "https://old.reddit.com/r/sony/"
+    n = 'Dodge'
+    # url = "https://old.reddit.com/r/fitbit/"
+    url = "https://old.reddit.com/r/" + n +"/"
+
     headers = {'User-Agent': 'Mozilla/5.0'}
     page = requests.get(url, headers=headers)
     soup = BeautifulSoup(page.text, 'html.parser')
 
-    attrs = {'class': 'thing', 'data-domain': 'self.sony'}
+    # attrs = {'class': 'thing', 'data-domain': 'self.fitbit'}
+    attrs = {'class': 'thing', 'data-domain': 'self.'+ n}
+
     counter = 1
     while counter <= 1000:
         for post in soup.find_all("div", attrs=attrs):
@@ -31,7 +36,9 @@ if __name__ == "__main__":
 
             post_line = [counter, title, author, likes, comments]
 
-            with open('sony.csv', 'a') as f:
+            # with open('fitbit.csv', 'a') as f:
+            with open(n + '.csv', 'a') as f:
+
                 writer = csv.writer(f)
                 writer.writerow(post_line)
             
