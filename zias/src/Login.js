@@ -1,9 +1,12 @@
-$("#login-button").click(function(event){
+$("#login-button").click(function (event) {
     event.preventDefault();
-    console.log("poop");
-// $('form').fadeOut(500);
-// $('.wrapper').addClass('form-success');
 
-window.location.replace("ibm.html")
+    var email = $("email").val;
+    var pass = $("pass").val;
+    if ((email && pass) != "") {
 
+        window.location.replace("ibm.html")
+    } else {
+        alert("Invalid Email or Password. Please try again!");
+    }
 });
